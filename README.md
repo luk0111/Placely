@@ -1,30 +1,49 @@
-🏙️ SmartCity
-SmartCity is a modern full-stack application designed to help users discover essential services—from hotels to clinics—in major metropolitan areas. It also serves as a vibrant social platform, allowing users to interact with posts from fellow travelers and local businesses in a community-driven environment. It features a hybrid review system that aggregates real-time data from the Google Places API alongside a custom, internal user review platform.
+# 📍 Placely
 
-🚀 Tech Stack
-Backend: Java 21 (Spring Boot 3.x), Spring Security (JWT), Spring Data JPA.
+**Placely** is a modern, full-stack platform designed to help users discover essential local services—from boutique hotels to healthcare clinics—in major metropolitan areas. 
 
-Frontend: React (Vite + TypeScript), React-Spring (Physics-based animations).
+More than just a directory, Placely serves as a vibrant social hub. It allows users to interact with posts from fellow travelers and local businesses in a community-driven environment. By utilizing a **hybrid data layer**, the platform seamlessly aggregates real-time data from the Google Places API alongside a custom, internal user-review system.
 
-## Database Setup
-The project uses H2 in **File-Based Mode** with Auto-Server enabled. This allows you to view the database via IntelliJ or DBeaver while the app is running.
+---
 
-- **JDBC URL:** `jdbc:h2:file:./data/smartcity;AUTO_SERVER=TRUE`
-- **User:** `sa`
-- **Password:** `password`
-- **H2 Console:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+## 🚀 Tech Stack
 
-**Note:** The database files are stored in `backend/data/` and are ignored by Git. When you clone this repo, you will start with a fresh, empty database.
+**Backend**
+* Java 21 (Spring Boot 3.x)
+* Spring Security (JWT Authentication)
+* Spring Data JPA
+* H2 Database (File-Based)
 
-Integration: Google Places API (Photos & Reviews).
+**Frontend**
+* React (Vite + TypeScript)
+* React-Spring (Physics-based UI animations)
 
-✨ Key Features
-City & Service Discovery: Browse supported cities and filter venues by category (Hotels, Restaurants, Clinics).
+**Integrations**
+* Google Places API (Real-time photos, ratings, and location data)
 
-Social Community Hub: A dedicated social media feed where users can create posts, share travel experiences, and interact with updates from businesses and other travelers.
+---
 
-Hybrid Data Layer: Seamlessly merges static database records with live data (photos/ratings) from Google.
+## ✨ Key Features
 
-User System: Secure authentication allowing users to write their own custom reviews and rate locations.
+* **City & Service Discovery:** Browse supported metropolitan areas and intuitively filter venues by category (e.g., Hotels, Restaurants, Clinics).
+* **Hybrid Data Layer:** A highly scalable architecture that seamlessly merges static internal database records with live API data (photos, reviews, and ratings) from Google.
+* **Social Community Hub:** A dedicated social media feed where users can create posts, share travel experiences, and interact with updates from businesses and other travelers.
+* **Robust User System:** Secure JWT authentication allowing users to manage profiles, write custom reviews, and rate locations directly within the platform.
+* **Fluid UI Experience:** High-performance, physics-based animations via React-Spring to deliver a premium, responsive user experience.
 
-Fluid UI: High-performance, physics-based animations for a premium user experience.
+---
+
+## 🛠️ Database Setup
+
+The project uses an H2 Database in **File-Based Mode** with Auto-Server enabled. This allows you to view and interact with the database via IntelliJ or DBeaver while the application is running.
+
+* **JDBC URL:** `jdbc:h2:file:./data/placely;AUTO_SERVER=TRUE`
+* **User:** `sa`
+* **Password:** `password`
+* **H2 Console:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+
+> **Note:** The database files are stored locally in the `backend/data/` directory and are ignored by Git. When cloning this repository, you will start with a fresh, empty database.
+
+---
+
+## 💻 Getting Started

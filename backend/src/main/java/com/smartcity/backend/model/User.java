@@ -49,4 +49,14 @@ public class User {
 
     public String getResetToken(){ return resetToken; }
     public void setResetToken(String resetToken){ this.resetToken = resetToken; }
+
+    //profile configuration fields
+
+    private String profilePicture;
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+
 }

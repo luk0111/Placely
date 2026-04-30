@@ -46,13 +46,15 @@ export default function AuthPage({ onLoginSuccess, onSignupClick, onForgotPasswo
             })
 
             const result = await response.json()
+            const role = result.role || localStorage.getItem('userRole') || 'Citizen'
 
             if (result.status === "success") {
                 localStorage.setItem("token", result.token || "dummy-token")
                 localStorage.setItem("username", result.username)
-                onLoginSuccess({ username: result.username, email: result.email })
+                localStorage.setItem("userRole", role)
+                onLoginSuccess({ username: result.username, email: result.email, role })
             } else {
-                setError(result.message)
+                setError(result.message || 'Login failed')
             }
         } catch (err) {
             setError("Connection Failed")
@@ -96,9 +98,8 @@ export default function AuthPage({ onLoginSuccess, onSignupClick, onForgotPasswo
                     Log In
                 </button>
 
-                {/* Added type="button" so this doesn't accidentally trigger a login */}
                 <button type="button" onClick={onSignupClick} style={styles.secondaryButton}>
-                    Create New Account
+                    Sign Up
                 </button>
 
                 {errorTransitions((style, item) =>
@@ -142,9 +143,12 @@ const styles: Record<string, React.CSSProperties> = {
     title: { margin: '0 0 8px 0', color: '#111', fontWeight: 600, fontSize: '2rem' },
     subtitle: { margin: '0 0 35px 0', color: '#555', fontSize: '0.95rem', letterSpacing: '0.5px' },
     errorText: {
-        color: '#ff3b30', fontSize: '0.85rem',
+        color: '#ff3b30',
+        fontSize: '0.85rem',
         fontWeight: 'normal',
-        position: 'absolute', bottom: '15px', left: 0, right: 0, textAlign: 'center'
+        textAlign: 'center',
+        marginTop: '12px',
+        width: '100%'
     },
     input: {
         width: '100%', padding: '15px 16px', marginBottom: '15px', borderRadius: '8px',

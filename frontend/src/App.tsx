@@ -10,6 +10,7 @@ import ResetPassword from './components/ResetPassword'
 export interface UserData {
     username: string;
     email: string;
+    role?: string;
 }
 
 type PageState = 'login' | 'signup' | 'menu' | 'verify' | 'forgot-password' | 'reset-password'
@@ -19,6 +20,10 @@ function App() {
     const [verificationCode, setVerificationCode] = useState<string | null>(null)
     const [resetToken, setResetToken] = useState<string | null>(null)
     const [currentUser, setCurrentUser] = useState<UserData | null>(null)
+
+    useEffect(() => {
+        document.title = 'SmartCity'
+    }, [])
 
     useEffect(() => {
         const path = window.location.pathname
@@ -59,6 +64,7 @@ function App() {
     }
 
     const handleLogout = () => {
+        localStorage.removeItem('userRole')
         setCurrentUser(null)
         setCurrentPage('login')
     }
